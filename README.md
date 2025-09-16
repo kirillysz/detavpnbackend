@@ -9,6 +9,10 @@ chmod +x start.sh
 ## 2. Настройка .env
 Создайте файл .env с:
 ```bash
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+POSTGRES_DB=detavpn
+
 DB_USER=postgres
 DB_PASSWORD=postgres
 DB_NAME=detavpn
