@@ -2,4 +2,3 @@ asyncpg
 fastapi[standard]
 pydantic-settings
 sqlalchemy
-alembic
