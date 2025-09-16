@@ -1,5 +1,5 @@
 asyncpg
-"fastapi[standard]"
+fastapi[standard]
 pydantic-settings
 sqlalchemy
 alembic
