@@ -11,9 +11,12 @@ chmod +x start.sh
 ```bash
 DB_USER=postgres
 DB_PASSWORD=postgres
-DB_NAME=db
+DB_NAME=detavpn
+DATABASE_URL=postgresql+asyncpg://postgres:postgres@db:5432/detavpn
 
-DATABASE_URL=postgresql+asyncpg://postgres:postgres@db:5432/db
+SECRET_KEY=my_secret
+JWT_ALGORITHM=HS256
+JWT_EXPIRATION_TIME=3600
 ```
 
 ## 3. Развертывание докера
