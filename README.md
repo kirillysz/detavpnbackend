@@ -3,6 +3,8 @@
 ```bash
 git clone https://github.com/kirillysz/detavpnbackend
 cd detavpnbackend
+
+chmod +x start.sh
 ```
 ## 2. Настройка .env
 Создайте файл .env с:
