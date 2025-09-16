@@ -10,6 +10,11 @@ async def lifespan(app: FastAPI):
     yield
 
 app = FastAPI(lifespan=lifespan)
+
+@app.get("/")
+async def root():
+    return {"status": "200"}
+
 app.include_router(api_router)
 
 if __name__ == "__main__":
