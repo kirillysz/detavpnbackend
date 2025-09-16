@@ -10,12 +10,13 @@ from app.schemas.user_schemas.users import UserCreate, UserResponse
 
 router = APIRouter(prefix="/users", tags=["users"])
 
-@router.get("/", response_model=List[UserResponse], response_model_include=["id", "telegram_id", "balance", "is_subscription_active"])
+@router.get("/active", response_model=List[UserResponse])
 async def get_users(
     db: AsyncSession = Depends(get_db)
 ) -> List[UserResponse]:
-    users = await UserCrud.get_all_users(db)
+    users = await UserCrud.get_active_users(db)
     return users
+
 
 @router.post("/add", response_model=UserResponse, status_code=HTTP_201_CREATED)
 async def add_user(

@@ -14,6 +14,7 @@ class UserUpdate(BaseModel):
 
 class UserInDB(UserBase):
     id: int = Field(..., description="User ID")
+    telegram_id: str = Field(..., description="Telegram user ID")
     balance: int = Field(default=0, description="User's balance")
     is_subscription_active: bool = Field(default=False, description="Is user active")
 

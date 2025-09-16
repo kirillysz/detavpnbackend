@@ -20,8 +20,14 @@ class UserCrud:
         return is_user_exists.scalar_one_or_none()
     
     @staticmethod
-    async def get_all_users(db: AsyncSession) -> List[User]:
-        return await db.execute(select(User)).all()
+    async def get_active_users(db: AsyncSession) -> List[UserResponse]:
+        result = await db.execute(
+            select(User).where(User.is_subscription_active.is_(True))
+        )
+        users = result.scalars().fetchall()
+        users_response = [UserResponse.model_validate(user) for user in users]
+
+        return users_response
 
     @staticmethod
     async def create_user(
